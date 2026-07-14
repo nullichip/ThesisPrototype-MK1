@@ -1,18 +1,42 @@
-[gd_scene load_steps=2 format=3 uid="uid://xnlty5e0wfym"]
+[gd_scene load_steps=4 format=3 uid="uid://xnlty5e0wfym"]
 
 [ext_resource type="Script" uid="uid://b22h33ci64rtv" path="res://scripts/xr_origin_3d.gd" id="1_oaeg3"]
 
-[node name="XROrigin3D" type="XROrigin3D"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_oaeg3"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_a60on"]
+
+[node name="MainRoom" type="Node3D"]
+
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.767204, 0, 15.827436)
 script = ExtResource("1_oaeg3")
 
-[node name="XRCamera3D" type="XRCamera3D" parent="."]
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+current = true
 
-[node name="LeftHand" type="XRController3D" parent="."]
+[node name="XRController3D" type="XRController3D" parent="XROrigin3D"]
 tracker = &"left_hand"
 
-[node name="LeftHandArea" type="Area3D" parent="LeftHand"]
+[node name="LeftHandArea" type="Area3D" parent="XROrigin3D/XRController3D"]
 
-[node name="RightHand" type="XRController3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/XRController3D/LeftHandArea"]
+shape = SubResource("SphereShape3D_oaeg3")
+
+[node name="XRController3D2" type="XRController3D" parent="XROrigin3D"]
 tracker = &"right_hand"
 
-[node name="RightHandArea" type="Area3D" parent="RightHand"]
+[node name="RightHandArea" type="Area3D" parent="XROrigin3D/XRController3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/XRController3D2/RightHandArea"]
+shape = SubResource("SphereShape3D_a60on")
+
+[node name="Floor" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.062413216, -0.49468613, 9.582605)
+size = Vector3(31.94441, 1.1278, 16.972645)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
