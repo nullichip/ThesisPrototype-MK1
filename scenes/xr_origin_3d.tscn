@@ -1,19 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://xnlty5e0wfym"]
+[gd_scene load_steps=8 format=3 uid="uid://xnlty5e0wfym"]
 
 [ext_resource type="Script" uid="uid://b22h33ci64rtv" path="res://scripts/xr_origin_3d.gd" id="1_oaeg3"]
+[ext_resource type="PackedScene" uid="uid://brlglobg7i4uo" path="res://polycam models/7_13_2026.glb" id="2_kt5jd"]
+[ext_resource type="Script" uid="uid://c1poqtfnixp0f" path="res://scripts/interactive_items.gd" id="3_0t3sa"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_oaeg3"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_a60on"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_lnt0p"]
+size = Vector3(2.7699127, 0.5068054, 1.3942566)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_j2fxx"]
+radius = 0.14505945
+
 [node name="MainRoom" type="Node3D"]
 
 [node name="XROrigin3D" type="XROrigin3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.767204, 0, 15.827436)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5173445, 2.8902407, 57.577774)
 script = ExtResource("1_oaeg3")
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
-current = true
+transform = Transform3D(0.97098845, 0, 0.23912665, 0, 1, 0, -0.23912665, 0, 0.97098845, 0, 0, 0)
 
 [node name="XRController3D" type="XRController3D" parent="XROrigin3D"]
 tracker = &"left_hand"
@@ -21,6 +29,7 @@ tracker = &"left_hand"
 [node name="LeftHandArea" type="Area3D" parent="XROrigin3D/XRController3D"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/XRController3D/LeftHandArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0435696, 0)
 shape = SubResource("SphereShape3D_oaeg3")
 
 [node name="XRController3D2" type="XRController3D" parent="XROrigin3D"]
@@ -29,14 +38,57 @@ tracker = &"right_hand"
 [node name="RightHandArea" type="Area3D" parent="XROrigin3D/XRController3D2"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/XRController3D2/RightHandArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0435696, 0)
 shape = SubResource("SphereShape3D_a60on")
 
 [node name="Floor" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.062413216, -0.49468613, 9.582605)
-size = Vector3(31.94441, 1.1278, 16.972645)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.550385, 0.54888344, 25.733742)
+use_collision = true
+size = Vector3(88.92035, 1.1278, 67.29172)
+
+[node name="LeftWall" type="CSGBox3D" parent="Floor"]
+transform = Transform3D(-4.371138e-08, 1, 0, -0.9999998, -4.371139e-08, 0, 0, 0, 1, -44.293777, 22.092762, -0.09056473)
+size = Vector3(45.21074, 0.21108818, 67.030174)
+
+[node name="BackWall" type="CSGBox3D" parent="Floor"]
+transform = Transform3D(1.9106853e-15, -4.3711385e-08, 0.99999994, -0.99999994, -4.3711385e-08, 0, 4.3711385e-08, -0.9999999, -4.3711385e-08, 0.053649902, 22.131275, -33.558052)
+size = Vector3(45.06687, 0.24172783, 88.84903)
+
+[node name="Right Wall" type="CSGBox3D" parent="Floor"]
+transform = Transform3D(-4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, 0, 0, 0, 1, 44.406845, 22.058296, -0.124637604)
+size = Vector3(45.168106, 0.17251396, 67.128525)
+
+[node name="EnterWall" type="CSGBox3D" parent="Floor"]
+transform = Transform3D(1.9106884e-15, -4.371144e-08, 1.000003, -1.0000015, -4.371144e-08, 0, 4.3711456e-08, -1.0000012, -4.371152e-08, 0.06376457, 22.105373, 33.331715)
+size = Vector3(45.077614, 0.2184124, 88.80379)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.842438)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+
+[node name="7_13_2026" parent="." instance=ExtResource("2_kt5jd")]
+transform = Transform3D(-3.8134633e-07, -10, 4.510007e-08, 6.288183, -2.7486522e-07, -7.775522, 7.775522, -2.6815695e-07, 6.288183, 13.799, 18.036, 42.416)
+script = ExtResource("3_0t3sa")
+haptic_amplitude = 1.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="7_13_2026"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="7_13_2026/StaticBody3D"]
+transform = Transform3D(0.6270933, 1.7763568e-15, 0.77894396, 1.0741408e-14, 1, -1.7763568e-15, -0.77894396, -1.7763568e-15, 0.6270933, -0.27036905, 0.14750671, 0.19152212)
+shape = SubResource("BoxShape3D_lnt0p")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="7_13_2026"]
+transform = Transform3D(0.7805491, 1.7763568e-15, -0.6250943, -3.5527137e-15, 1, -8.174017e-15, 0.6250943, -1.7763568e-15, 0.7805491, -0.26270056, 0.11471701, 0.20033431)
+size = Vector3(1.3673401, 0.46142578, 2.8006897)
+
+[node name="Bunny" type="Area3D" parent="7_13_2026"]
+script = ExtResource("3_0t3sa")
+haptic_frequency = 100.0
+haptic_amplitude = 0.2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="7_13_2026/Bunny"]
+transform = Transform3D(0.6427622, 4.52971e-13, 0.766027, 5.1680882e-14, 0.99999857, 1.7053026e-13, -0.766027, 1.9895197e-13, 0.6427622, -0.6789297, 0.42772603, 0.43613634)
+shape = SubResource("SphereShape3D_j2fxx")

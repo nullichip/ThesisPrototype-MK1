@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bjcqte2bxf6gc"
-path.s3tc="res://.godot/imported/7_13_2026_5d4eb2a8b3e2a53e9abff909a5a35ca8.jpg-5cd4fbb47741c0ca0ea5db8e9f9ea15d.s3tc.ctex"
+path.s3tc="res://.godot/imported/7_13_2026_5d4eb2a8b3e2a53e9abff909a5a35ca8 (2).jpg-49272c7db6d477d840d5944f06558fc4.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://7_13_2026_5d4eb2a8b3e2a53e9abff909a5a35ca8.jpg"
-dest_files=["res://.godot/imported/7_13_2026_5d4eb2a8b3e2a53e9abff909a5a35ca8.jpg-5cd4fbb47741c0ca0ea5db8e9f9ea15d.s3tc.ctex"]
+source_file="res://polycam models/7_13_2026_5d4eb2a8b3e2a53e9abff909a5a35ca8 (2).jpg"
+dest_files=["res://.godot/imported/7_13_2026_5d4eb2a8b3e2a53e9abff909a5a35ca8 (2).jpg-49272c7db6d477d840d5944f06558fc4.s3tc.ctex"]
 
 [params]
 
