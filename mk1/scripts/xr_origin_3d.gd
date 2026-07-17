@@ -10,7 +10,3 @@ func _ready() -> void:
 		get_viewport().use_xr = true
 	else:
 		print("OpenXR not initialized. Please connect your Oculus...")
-
-#func on_area_entered(area_that_entered):
-	#if area_that_entered.name == "LeftHandArea" or area_that_entered.name == "RightHandArea:
-		#area_that_entered.get_parent().trigger_haptic_pulse("haptic", 10.0, 0.5, 0.1, 0)
