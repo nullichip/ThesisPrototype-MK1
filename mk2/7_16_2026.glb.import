@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://brlglobg7i4uo"
-path="res://.godot/imported/7_13_2026.glb-6ba43fb7d6ad715413114f08026429fe.scn"
+uid="uid://gpsgq0wtaaj5"
+path="res://.godot/imported/7_16_2026.glb-54b6167bbfec5357efe4cac9c3f86b21.scn"
 
 [deps]
 
-source_file="res://polycam models/7_13_2026.glb"
-dest_files=["res://.godot/imported/7_13_2026.glb-6ba43fb7d6ad715413114f08026429fe.scn"]
+source_file="res://mk2/7_16_2026.glb"
+dest_files=["res://.godot/imported/7_16_2026.glb-54b6167bbfec5357efe4cac9c3f86b21.scn"]
 
 [params]
 

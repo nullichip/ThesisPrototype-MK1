@@ -1,0 +1,132 @@
+[gd_scene load_steps=9 format=3 uid="uid://dqetv4hvsshpe"]
+
+[ext_resource type="Script" uid="uid://b22h33ci64rtv" path="res://mk1/scripts/xr_origin_3d.gd" id="1_m8hhh"]
+[ext_resource type="PackedScene" uid="uid://gpsgq0wtaaj5" path="res://mk2/7_16_2026.glb" id="2_5ey6j"]
+[ext_resource type="Script" uid="uid://c1poqtfnixp0f" path="res://mk1/scripts/interactive_items.gd" id="3_07exr"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_jq0ev"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_6o0w4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v7l7j"]
+size = Vector3(2.103363, 1.5341797, 0.14208984)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uyawt"]
+size = Vector3(3.152893, 1.3452911, 0.56048584)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_it3bd"]
+size = Vector3(0.12460327, 0.16192627, 0.06271362)
+
+[node name="MvpRoomMk2" type="Node3D"]
+
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21732616, 0.90649235, -0.6235653)
+script = ExtResource("1_m8hhh")
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+transform = Transform3D(-0.97014785, 0, -0.24251452, 0, 1, 0, 0.24251452, 0, -0.97014785, -0.7980536, -0.39265943, -0.36089525)
+current = true
+
+[node name="LeftController" type="XRController3D" parent="XROrigin3D"]
+tracker = &"left_hand"
+
+[node name="LeftHandArea" type="Area3D" parent="XROrigin3D/LeftController"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/LeftController/LeftHandArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0435696, 0)
+shape = SubResource("SphereShape3D_jq0ev")
+
+[node name="RightController" type="XRController3D" parent="XROrigin3D"]
+tracker = &"right_hand"
+
+[node name="RightHandArea" type="Area3D" parent="XROrigin3D/RightController"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/RightController/RightHandArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0435696, 0)
+shape = SubResource("SphereShape3D_6o0w4")
+
+[node name="Floor" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.111206055)
+use_collision = true
+size = Vector3(4, 0.1, 3.222412)
+
+[node name="Walls" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="Wall1" type="CSGBox3D" parent="Walls"]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -1.9504114, 1.2097797, -0.111083984)
+use_collision = true
+size = Vector3(2.5, 0.1, 3.222168)
+
+[node name="Wall2" type="CSGBox3D" parent="Walls"]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 1.9531544, 1.2053154, -0.113464355)
+use_collision = true
+size = Vector3(2.5, 0.1, 3.2269287)
+
+[node name="Wall3" type="CSGBox3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 1.2106994, -1.6780705)
+use_collision = true
+size = Vector3(4, 0.1, 2.5)
+
+[node name="Wall4" type="CSGBox3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 1.2086622, 1.4527292)
+use_collision = true
+size = Vector3(4, 0.1, 2.5)
+
+[node name="WindowGlass" type="StaticBody3D" parent="Walls"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/WindowGlass"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35569763, 1.2813184, 1.4552674)
+shape = SubResource("BoxShape3D_v7l7j")
+
+[node name="Window" type="CSGBox3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36230922, 1.2862166, 1.4634776)
+operation = 2
+size = Vector3(2.103, 1.532, 1)
+
+[node name="DeskWindowside" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0985895, 0.61176777, 1.1246972)
+use_collision = true
+size = Vector3(1.6584766, 0.1, 0.57291794)
+
+[node name="Desk" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6672463, 0.6132835, 0.6426736)
+size = Vector3(0.45983887, 0.1, 1.5031128)
+
+[node name="Bed" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.81421936, 0.294267, -0.9986504)
+use_collision = true
+size = Vector3(2.1419983, 0.47753906, 1.2371826)
+
+[node name="Vanity" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.81100345, 0.6005067, 1.2315114)
+use_collision = true
+size = Vector3(1.0957031, 0.1, 0.33)
+
+[node name="SmallShelf" type="CSGBox3D" parent="."]
+transform = Transform3D(0.8494325, 0, -0.52769727, 0, 1, 0, 0.52769727, 0, 0.8494325, -1.6327466, 1.0318904, 1.113725)
+use_collision = true
+size = Vector3(0.32435608, 1.9613647, 0.40307617)
+
+[node name="ClosetDoor" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8727498, 1.0185944, 0.06946921)
+use_collision = true
+size = Vector3(0.06210327, 1.9511414, 1.2397919)
+
+[node name="MangaShelf" parent="." instance=ExtResource("2_5ey6j")]
+transform = Transform3D(-5.255986e-10, 2.3161071e-08, 0.53, 0.52986354, 0.0120242955, 0, -0.0120242955, 0.52986354, -2.3167035e-08, -1.7820774, 0.88770175, -1.2892171)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MangaShelf"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8626451e-09, 0.7489276, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MangaShelf/StaticBody3D"]
+transform = Transform3D(1, 0, -4.7406523e-14, 0, 1, -4.973799e-14, 0, -2.4868996e-14, 0.99999917, -0.05093372, 0.027274609, -0.051847935)
+shape = SubResource("BoxShape3D_uyawt")
+
+[node name="FuzzyStar" type="Area3D" parent="MangaShelf"]
+script = ExtResource("3_07exr")
+haptic_frequency = 100.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MangaShelf/FuzzyStar"]
+transform = Transform3D(1, 0, -8.6597396e-14, 0, 1, -5.3290705e-14, 0, -2.4868996e-14, 0.99999917, 0.5582601, 0.6044575, 0.14778376)
+shape = SubResource("BoxShape3D_it3bd")

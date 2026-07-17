@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjcqte2bxf6gc"
-path.s3tc="res://.godot/imported/7_13_2026_5d4eb2a8b3e2a53e9abff909a5a35ca8 (2).jpg-49272c7db6d477d840d5944f06558fc4.s3tc.ctex"
+uid="uid://boqp2fy5lfwld"
+path.s3tc="res://.godot/imported/7_16_2026_07f0dcc75218ca1ce09de5ee4f21df52.jpg-6c021197c728f98e7bf7617702baf049.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "e9d4fa0b9668ee5633fa5be4ce354191"
+"md5": "486ddfa392a4ed3c0eafa3ac023087c4"
 }
 
 [deps]
 
-source_file="res://polycam models/7_13_2026_5d4eb2a8b3e2a53e9abff909a5a35ca8 (2).jpg"
-dest_files=["res://.godot/imported/7_13_2026_5d4eb2a8b3e2a53e9abff909a5a35ca8 (2).jpg-49272c7db6d477d840d5944f06558fc4.s3tc.ctex"]
+source_file="res://mk2/7_16_2026_07f0dcc75218ca1ce09de5ee4f21df52.jpg"
+dest_files=["res://.godot/imported/7_16_2026_07f0dcc75218ca1ce09de5ee4f21df52.jpg-6c021197c728f98e7bf7617702baf049.s3tc.ctex"]
 
 [params]
 
