@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dhwln4pdcdfwy"]
+
+[ext_resource type="Texture2D" uid="uid://bnwktjtptflyl" path="res://Thesis/WestWall.jpg" id="1_27o5m"]
+
+[resource]
+albedo_texture = ExtResource("1_27o5m")
