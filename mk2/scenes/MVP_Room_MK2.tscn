@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dqetv4hvsshpe"]
+[gd_scene load_steps=19 format=3 uid="uid://dqetv4hvsshpe"]
 
 [ext_resource type="Script" uid="uid://b22h33ci64rtv" path="res://mk1/scripts/xr_origin_3d.gd" id="1_m8hhh"]
 [ext_resource type="PackedScene" uid="uid://gpsgq0wtaaj5" path="res://mk2/7_16_2026.glb" id="2_5ey6j"]
@@ -9,15 +9,20 @@
 [ext_resource type="Material" uid="uid://dhwln4pdcdfwy" path="res://Thesis/westwall.tres" id="4_it3bd"]
 [ext_resource type="Material" uid="uid://cs4iuqbl25xb5" path="res://Thesis/southwall.tres" id="5_8iy2e"]
 [ext_resource type="Material" uid="uid://8864xgfnrrou" path="res://Thesis/northwall.tres" id="6_w7fob"]
+[ext_resource type="Texture2D" uid="uid://cuhtqsdh74174" path="res://Thesis/ceiling.jpg" id="8_it3bd"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_jq0ev"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_6o0w4"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uyawt"]
-cull_mode = 2
-depth_test = 1
+[sub_resource type="CylinderMesh" id="CylinderMesh_8iy2e"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w7fob"]
+cull_mode = 1
 albedo_texture = ExtResource("2_v7l7j")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lyy5c"]
+albedo_texture = ExtResource("8_it3bd")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v7l7j"]
 size = Vector3(2.103363, 1.5341797, 0.14208984)
@@ -66,13 +71,10 @@ material = ExtResource("2_uyawt")
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
 transform = Transform3D(-0.9999999, 0, -8.742277e-08, 0, 1.0668207, 0, 8.742277e-08, 0, -0.9999999, 4.791621e-07, 0, 5.480975)
 
-[node name="Outside" type="CSGCylinder3D" parent="CSGCombiner3D"]
-transform = Transform3D(-1.652902, 1.6421181e-07, 0, -1.4450127e-07, -1.8783641, 0, 0, 0, 1.1372099, 0.61463547, 1.1089137, 3.5974524)
-flip_faces = true
-radius = 0.975
-height = 1.331543
-sides = 40
-material = SubResource("StandardMaterial3D_uyawt")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CSGCombiner3D"]
+transform = Transform3D(13.713727, 0, -2.842171e-14, 0, 3.1913865, 0, 9.794404e-14, 0, 3.5337207, 0.1549204, 1.8304838, 1.8950486)
+mesh = SubResource("CylinderMesh_8iy2e")
+surface_material_override/0 = SubResource("StandardMaterial3D_w7fob")
 
 [node name="Eraser" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1.6528784, 0, 0, 0, 1.8783135, 0, 0, 0, 1.1372098, -0.5778688, 0.97122276, 4.822875)
@@ -109,6 +111,11 @@ use_collision = true
 flip_faces = true
 size = Vector3(2.4769287, 0.1, 4.091625)
 material = ExtResource("6_w7fob")
+
+[node name="Ceiling" type="CSGBox3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.011428833, 2.5879157, 0.16173416)
+size = Vector3(4.0033875, 0.11279297, 3.7902832)
+material = SubResource("StandardMaterial3D_lyy5c")
 
 [node name="WindowGlass" type="StaticBody3D" parent="Walls"]
 
