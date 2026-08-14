@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhisa27xt7fha"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jeqj2"]
+
+[node name="InteractiveBooks" type="RigidBody3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(0.65301764, 0, 0, 0, 0.65301764, 0, 0, 0, 0.65301764, -0.11816406, 0.46289063, -0.41104126)
+size = Vector3(1.2363281, 1.9257813, 0.17791748)
+material = SubResource("StandardMaterial3D_jeqj2")
