@@ -156,7 +156,7 @@ use_collision = true
 size = Vector3(0.46823502, 2.363388, 0.29089355)
 
 [node name="MangaShelf" parent="." instance=ExtResource("2_5ey6j")]
-transform = Transform3D(-8.0276824e-10, 3.2666062e-08, 0.53, 0.80928224, 0.016958904, 0, -0.018365199, 0.74731237, -2.3167035e-08, -1.8539236, 1.0446595, -1.2857835)
+transform = Transform3D(-8.0276824e-10, 3.2666062e-08, 0.53, 0.80928224, 0.016958904, 0, -0.018365199, 0.74731237, -2.3167035e-08, -1.9585313, 1.0741775, -1.3708184)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MangaShelf"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8626451e-09, 0.7489276, 0)
@@ -175,7 +175,7 @@ transform = Transform3D(1, 0, -8.6597396e-14, 0, 1, -5.3290705e-14, 0, -2.486899
 shape = SubResource("BoxShape3D_it3bd")
 
 [node name="InteractiveManga1" parent="." instance=ExtResource("11_w7fob")]
-transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-08, -1.6974841, 1.7287707, -0.6950004)
+transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-08, -1.7933118, 1.7287707, -0.77685636)
 
 [node name="InteractiveManga2" parent="." instance=ExtResource("12_lyy5c")]
-transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-08, -1.647182, 1.3598219, -0.38373473)
+transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-08, -1.7628776, 1.390923, -0.45657077)
