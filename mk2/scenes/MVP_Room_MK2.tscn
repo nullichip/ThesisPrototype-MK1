@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dqetv4hvsshpe"]
+[gd_scene load_steps=21 format=3 uid="uid://dqetv4hvsshpe"]
 
 [ext_resource type="Script" uid="uid://b22h33ci64rtv" path="res://mk1/scripts/xr_origin_3d.gd" id="1_m8hhh"]
 [ext_resource type="PackedScene" uid="uid://gpsgq0wtaaj5" path="res://mk2/7_16_2026.glb" id="2_5ey6j"]
@@ -17,14 +17,14 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_6o0w4"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lyy5c"]
+albedo_texture = ExtResource("8_it3bd")
+
 [sub_resource type="CylinderMesh" id="CylinderMesh_8iy2e"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w7fob"]
 cull_mode = 1
 albedo_texture = ExtResource("2_v7l7j")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lyy5c"]
-albedo_texture = ExtResource("8_it3bd")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uyawt"]
 size = Vector3(3.152893, 1.3452911, 0.56048584)
@@ -37,135 +37,137 @@ ambient_light_source = 3
 ambient_light_color = Color(0.8, 0.6313726, 0.4627451, 0.63529414)
 ambient_light_energy = 4.0
 
-[node name="MvpRoomMk2" type="Node3D" unique_id=424453934]
+[node name="MvpRoomMk2" type="Node3D"]
 
-[node name="XROrigin3D" type="XROrigin3D" parent="." unique_id=272245763]
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1840966, 0.29425484, -0.6235653)
 script = ExtResource("1_m8hhh")
 
-[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D" unique_id=161481038]
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
 current = true
 
-[node name="LeftController" type="XRController3D" parent="XROrigin3D" unique_id=1490415431]
+[node name="LeftController" type="XRController3D" parent="XROrigin3D"]
 tracker = &"left_hand"
 
-[node name="LeftHandArea" type="Area3D" parent="XROrigin3D/LeftController" unique_id=1968913138]
+[node name="LeftHandArea" type="Area3D" parent="XROrigin3D/LeftController"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/LeftController/LeftHandArea" unique_id=434230953]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/LeftController/LeftHandArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0435696, 0)
 shape = SubResource("SphereShape3D_jq0ev")
 
-[node name="RightController" type="XRController3D" parent="XROrigin3D" unique_id=696597535]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/LeftController"]
+
+[node name="RightController" type="XRController3D" parent="XROrigin3D"]
 tracker = &"right_hand"
 
-[node name="RightHandArea" type="Area3D" parent="XROrigin3D/RightController" unique_id=1768477393]
+[node name="RightHandArea" type="Area3D" parent="XROrigin3D/RightController"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/RightController/RightHandArea" unique_id=2036386912]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/RightController/RightHandArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0435696, 0)
 shape = SubResource("SphereShape3D_6o0w4")
 
-[node name="Floor" type="CSGBox3D" parent="." unique_id=2095588816]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.07904053)
+[node name="WallE" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -1.9504114, 1.6716083, 0.06636047)
 use_collision = true
 flip_faces = true
-size = Vector3(4, 0.1, 3.6029053)
+size = Vector3(3.5153923, 0.1, 3.7658997)
+material = ExtResource("3_uyawt")
+
+[node name="WallW" type="CSGBox3D" parent="."]
+transform = Transform3D(4.371139e-08, -1, -8.742278e-08, -1, -4.371139e-08, 0, -3.821371e-15, 8.742278e-08, -1, 1.9122803, 1.5768974, 0.30681992)
+use_collision = true
+flip_faces = true
+size = Vector3(3.2978516, 0.1, 4.0958023)
+material = ExtResource("4_it3bd")
+
+[node name="WallS" type="CSGBox3D" parent="."]
+transform = Transform3D(1.9106855e-15, -4.371139e-08, -1, -1, -4.371139e-08, 0, -4.371139e-08, 1, -4.371139e-08, -0.08852935, 1.5000075, -1.6780705)
+use_collision = true
+flip_faces = true
+size = Vector3(3.3853025, 0.1, 4.1025586)
+material = ExtResource("5_8iy2e")
+
+[node name="WallN" type="CSGBox3D" parent="."]
+transform = Transform3D(1.9106855e-15, 4.371139e-08, 1, 1, -4.371139e-08, 0, 4.371139e-08, 1, -4.371139e-08, -0.07437706, 1.5781556, 1.832865)
+use_collision = true
+flip_faces = true
+size = Vector3(3.3104897, 0.1, 4.091625)
+material = ExtResource("6_w7fob")
+
+[node name="Ceiling" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.019290924, 3.184018, 0.19795853)
+size = Vector3(3.9876633, 0.041137695, 3.7178345)
+material = SubResource("StandardMaterial3D_lyy5c")
+
+[node name="Floor" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.354187, 0, 0.056869507)
+use_collision = true
+flip_faces = true
+size = Vector3(4.878784, 0.1, 3.8160095)
 material = ExtResource("2_uyawt")
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1440809966]
-transform = Transform3D(-0.9999999, 0, -8.742277e-08, 0, 1.0668207, 0, 8.742277e-08, 0, -0.9999999, 4.791621e-07, 0, 5.480975)
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Floor"]
+transform = Transform3D(-0.9999999, 0, -8.742277e-08, 0, 1.0668207, 0, 8.742277e-08, 0, -0.9999999, -0.03185987, 0, 5.4241056)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CSGCombiner3D" unique_id=1902752393]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor/CSGCombiner3D"]
 transform = Transform3D(13.713727, 0, -5.684342e-14, 0, 3.1913865, 0, 1.1368684e-13, 0, 3.5337207, 0.1549204, 1.8304838, 1.8950484)
 mesh = SubResource("CylinderMesh_8iy2e")
 surface_material_override/0 = SubResource("StandardMaterial3D_w7fob")
 
-[node name="Eraser" type="CSGBox3D" parent="CSGCombiner3D" unique_id=596579551]
+[node name="Eraser" type="CSGBox3D" parent="Floor/CSGCombiner3D"]
 transform = Transform3D(1.6528784, 0, 0, 0, 1.8783135, 0, 0, 0, 1.1372098, -0.5778688, 0.97122276, 4.822875)
 operation = 2
 size = Vector3(3.2296753, 4.406006, 2.1596375)
 
-[node name="WallE" type="CSGBox3D" parent="." unique_id=231088854]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -1.9504114, 1.3007377, 0.012664795)
-use_collision = true
-flip_faces = true
-size = Vector3(2.5355225, 0.1, 3.6585083)
-material = ExtResource("3_uyawt")
-
-[node name="WallW" type="CSGBox3D" parent="." unique_id=1060240263]
-transform = Transform3D(4.371139e-08, -1, -8.742278e-08, -1, -4.371139e-08, 0, -3.821371e-15, 8.742278e-08, -1, 1.9122803, 1.2839286, 0.30681992)
-use_collision = true
-flip_faces = true
-size = Vector3(2.4853516, 0.1, 4.0958023)
-material = ExtResource("4_it3bd")
-
-[node name="WallS" type="CSGBox3D" parent="." unique_id=839277928]
-transform = Transform3D(1.9106855e-15, -4.371139e-08, -1, -1, -4.371139e-08, 0, -4.371139e-08, 1, -4.371139e-08, -0.08852935, 1.2449049, -1.6780705)
-use_collision = true
-flip_faces = true
-size = Vector3(2.8750973, 0.1, 4.1025586)
-material = ExtResource("5_8iy2e")
-
-[node name="WallN" type="CSGBox3D" parent="." unique_id=14013429]
-transform = Transform3D(1.9106855e-15, 4.371139e-08, 1, 1, -4.371139e-08, 0, 4.371139e-08, 1, -4.371139e-08, -0.07437706, 1.2847272, 1.832865)
-use_collision = true
-flip_faces = true
-size = Vector3(2.490265, 0.1, 4.091625)
-material = ExtResource("6_w7fob")
-
-[node name="Ceiling" type="CSGBox3D" parent="." unique_id=1573335335]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.019290924, 2.5297492, 0.19795853)
-size = Vector3(3.9876633, 0.041137695, 3.7178345)
-material = SubResource("StandardMaterial3D_lyy5c")
-
-[node name="DeskWindowside" type="CSGBox3D" parent="." unique_id=1437569632]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0985895, 0.63035405, 1.5637982)
+[node name="DeskWindowside" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0870343, 0.6501091, 1.6271471)
 use_collision = true
 size = Vector3(1.6584766, 0.2453125, 0.57291794)
 
-[node name="Desk" type="CSGBox3D" parent="." unique_id=177540386]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6779912, 0.63338345, 1.0817746)
+[node name="Desk" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7604338, 0.65216655, 1.3669803)
 use_collision = true
 size = Vector3(0.45983887, 0.24228516, 1.5031128)
 
-[node name="Bed" type="CSGBox3D" parent="." unique_id=1901587983]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.66783416, 0.41261417, -0.79699785)
+[node name="Bed" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6694325, 0.506944, -0.68227845)
 use_collision = true
-size = Vector3(2.4347687, 0.7142334, 1.6404877)
+size = Vector3(2.4379654, 0.90289307, 1.8699265)
 
-[node name="Vanity" type="CSGBox3D" parent="." unique_id=1941970830]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.93719554, 0.6479953, 1.676675)
+[node name="Vanity" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.98969746, 0.80921316, 1.8901131)
 use_collision = true
-size = Vector3(1.0456543, 0.19345704, 0.41451174)
+size = Vector3(1.0456543, 0.20778808, 0.5980029)
 
-[node name="SmallShelf" type="CSGBox3D" parent="." unique_id=496925364]
-transform = Transform3D(0.8494325, 0, -0.52769727, 0, 1, 0, 0.52769727, 0, 0.8494325, -1.8067509, 1.1415198, 1.5480114)
+[node name="SmallShelf" type="CSGBox3D" parent="."]
+transform = Transform3D(0.8494325, 0, -0.52769727, 0, 1, 0, 0.52769727, 0, 0.8494325, -1.8067509, 1.5435927, 1.5480114)
 use_collision = true
-size = Vector3(0.46823502, 2.363388, 0.29089355)
+size = Vector3(0.46823502, 3.1675339, 0.29089355)
 
-[node name="MangaShelf" parent="." unique_id=1425894407 instance=ExtResource("2_5ey6j")]
-transform = Transform3D(-8.0276824e-10, 3.2666062e-08, 0.53, 0.80928224, 0.016958904, 0, -0.018365199, 0.74731237, -2.3167035e-08, -1.9585313, 1.0741775, -1.3708184)
+[node name="MangaShelf" parent="." instance=ExtResource("2_5ey6j")]
+transform = Transform3D(-8.0276824e-10, 3.2666062e-08, 0.53, 0.80928224, 0.016958904, 0, -0.018365199, 0.74731237, -2.3167035e-08, -1.854482, 1.6893325, -1.3383262)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="MangaShelf" unique_id=2023563298]
+[node name="StaticBody3D" type="StaticBody3D" parent="MangaShelf"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8626451e-09, 0.7489276, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MangaShelf/StaticBody3D" unique_id=1170131619]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MangaShelf/StaticBody3D"]
 transform = Transform3D(1, 0, -4.7406523e-14, 0, 1, -4.973799e-14, 0, -2.4868996e-14, 0.99999917, -0.05093372, 0.027274609, -0.051847935)
 shape = SubResource("BoxShape3D_uyawt")
 
-[node name="FuzzyStar" type="Area3D" parent="MangaShelf" unique_id=1076040608]
+[node name="FuzzyStar" type="Area3D" parent="MangaShelf"]
 script = ExtResource("3_07exr")
 haptic_frequency = 100.0
 haptic_amplitude = 0.2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MangaShelf/FuzzyStar" unique_id=261174008]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MangaShelf/FuzzyStar"]
 transform = Transform3D(1, 0, -8.6597396e-14, 0, 1, -5.3290705e-14, 0, -2.4868996e-14, 0.99999917, 0.5582601, 0.6044575, 0.14778376)
 shape = SubResource("BoxShape3D_it3bd")
 
-[node name="InteractiveManga1" parent="." unique_id=898467097 instance=ExtResource("11_w7fob")]
-transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-08, -1.7933118, 1.7287707, -0.77685636)
+[node name="InteractiveManga1" parent="." instance=ExtResource("11_w7fob")]
+transform = Transform3D(-2.6508348e-08, 0, 0.45440385, 0, 0.53482425, 0, -0.6064403, 0, -1.9862624e-08, -1.7161794, 2.355317, -0.7618725)
 
-[node name="InteractiveManga2" parent="." unique_id=328668252 instance=ExtResource("12_lyy5c")]
-transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-08, -1.7628776, 1.390923, -0.45657077)
+[node name="InteractiveManga2" parent="." instance=ExtResource("12_lyy5c")]
+transform = Transform3D(-2.508376e-08, 0, 0.5, 0, 0.5273126, 0, -0.57384956, 0, -2.1855694e-08, -1.6587002, 2.0017004, -0.43438092)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=230608010]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_w7fob")
