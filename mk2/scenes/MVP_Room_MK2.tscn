@@ -26,23 +26,25 @@ albedo_texture = ExtResource("2_v7l7j")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lyy5c"]
 albedo_texture = ExtResource("8_it3bd")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_v7l7j"]
-size = Vector3(2.103363, 1.5341797, 0.14208984)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_uyawt"]
 size = Vector3(3.152893, 1.3452911, 0.56048584)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_it3bd"]
 size = Vector3(0.12460327, 0.16192627, 0.06271362)
 
+[sub_resource type="Environment" id="Environment_w7fob"]
+ambient_light_source = 3
+ambient_light_color = Color(0.8, 0.6313726, 0.4627451, 0.63529414)
+ambient_light_energy = 4.0
+
 [node name="MvpRoomMk2" type="Node3D"]
+script = ExtResource("1_m8hhh")
 
 [node name="XROrigin3D" type="XROrigin3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21732616, 0.90649235, -0.6235653)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1840966, 0.29425484, -0.6235653)
 script = ExtResource("1_m8hhh")
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
-transform = Transform3D(-0.97014785, 0, -0.24251452, 0, 1, 0, 0.24251452, 0, -0.97014785, -0.7980536, -0.39265943, -0.36089525)
 current = true
 
 [node name="LeftController" type="XRController3D" parent="XROrigin3D"]
@@ -83,52 +85,38 @@ transform = Transform3D(1.6528784, 0, 0, 0, 1.8783135, 0, 0, 0, 1.1372098, -0.57
 operation = 2
 size = Vector3(3.2296753, 4.406006, 2.1596375)
 
-[node name="Walls" type="CSGCombiner3D" parent="."]
-use_collision = true
-
-[node name="WallE" type="CSGBox3D" parent="Walls"]
+[node name="WallE" type="CSGBox3D" parent="."]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -1.9504114, 1.3007377, 0.012664795)
 use_collision = true
 flip_faces = true
 size = Vector3(2.5355225, 0.1, 3.6585083)
 material = ExtResource("3_uyawt")
 
-[node name="WallW" type="CSGBox3D" parent="Walls"]
-transform = Transform3D(4.371139e-08, -1, -8.742278e-08, -1, -4.371139e-08, 0, -3.821371e-15, 8.742278e-08, -1, 1.9122803, 1.2839286, 0.07778931)
+[node name="WallW" type="CSGBox3D" parent="."]
+transform = Transform3D(4.371139e-08, -1, -8.742278e-08, -1, -4.371139e-08, 0, -3.821371e-15, 8.742278e-08, -1, 1.9122803, 1.2839286, 0.30681992)
 use_collision = true
 flip_faces = true
-size = Vector3(2.4853516, 0.1, 3.609436)
+size = Vector3(2.4853516, 0.1, 4.0958023)
 material = ExtResource("4_it3bd")
 
-[node name="WallS" type="CSGBox3D" parent="Walls"]
-transform = Transform3D(1.9106855e-15, -4.371139e-08, -1, -1, -4.371139e-08, 0, -4.371139e-08, 1, -4.371139e-08, -0.022464752, 1.1693672, -1.6780705)
+[node name="WallS" type="CSGBox3D" parent="."]
+transform = Transform3D(1.9106855e-15, -4.371139e-08, -1, -1, -4.371139e-08, 0, -4.371139e-08, 1, -4.371139e-08, -0.08852935, 1.2449049, -1.6780705)
 use_collision = true
 flip_faces = true
-size = Vector3(2.724022, 0.1, 4.234688)
+size = Vector3(2.8750973, 0.1, 4.1025586)
 material = ExtResource("5_8iy2e")
 
-[node name="WallN" type="CSGBox3D" parent="Walls"]
+[node name="WallN" type="CSGBox3D" parent="."]
 transform = Transform3D(1.9106855e-15, 4.371139e-08, 1, 1, -4.371139e-08, 0, 4.371139e-08, 1, -4.371139e-08, -0.07437706, 1.2847272, 1.832865)
 use_collision = true
 flip_faces = true
 size = Vector3(2.490265, 0.1, 4.091625)
 material = ExtResource("6_w7fob")
 
-[node name="Ceiling" type="CSGBox3D" parent="Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.019290924, 2.5879157, 0.16173416)
-size = Vector3(3.9876633, 0.11279297, 3.7902832)
+[node name="Ceiling" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.019290924, 2.5297492, 0.19795853)
+size = Vector3(3.9876633, 0.041137695, 3.7178345)
 material = SubResource("StandardMaterial3D_lyy5c")
-
-[node name="WindowGlass" type="StaticBody3D" parent="Walls"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/WindowGlass"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6208179, 1.5324359, 1.9354427)
-shape = SubResource("BoxShape3D_v7l7j")
-
-[node name="Window" type="CSGBox3D" parent="Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6165208, 1.5310912, 1.4634776)
-operation = 2
-size = Vector3(2.1183944, 1.5379727, 1)
 
 [node name="DeskWindowside" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0985895, 0.63035405, 1.5637982)
@@ -179,3 +167,6 @@ transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-
 
 [node name="InteractiveManga2" parent="." instance=ExtResource("12_lyy5c")]
 transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-08, -1.7628776, 1.390923, -0.45657077)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_w7fob")
