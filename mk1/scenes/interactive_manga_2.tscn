@@ -1,6 +1,5 @@
-[gd_scene load_steps=10 format=3 uid="uid://bghijt8wjymd6"]
+[gd_scene format=3 uid="uid://bghijt8wjymd6"]
 
-[ext_resource type="Script" uid="uid://c1poqtfnixp0f" path="res://mk1/scripts/interactive_items.gd" id="1_hgpoo"]
 [ext_resource type="Texture2D" uid="uid://cysjrd2ycrcyi" path="res://Thesis/PXL_20260814_072416284.MP.jpg" id="2_h3ddi"]
 [ext_resource type="Texture2D" uid="uid://da4r7cgkn4rb5" path="res://Thesis/PXL_20260814_072440570.TS-000.MP.jpg" id="3_hgpoo"]
 [ext_resource type="Texture2D" uid="uid://4vqfx6vneq6y" path="res://Thesis/PXL_20260814_072455312.MP.jpg" id="4_h3ddi"]
@@ -18,28 +17,25 @@ albedo_texture = ExtResource("4_h3ddi")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ryel"]
 albedo_texture = ExtResource("5_mso5s")
 
-[node name="InteractiveManga1" type="RigidBody3D"]
+[node name="InteractiveManga1" type="RigidBody3D" unique_id=1796971061]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-script = ExtResource("1_hgpoo")
-haptic_frequency = 5.0
-haptic_amplitude = 0.8
 
-[node name="Pages" type="CSGBox3D" parent="."]
+[node name="Pages" type="CSGBox3D" parent="." unique_id=826424009]
 transform = Transform3D(0.25850764, 0, 0, 0, -0.2535444, 2.5918814e-08, 0, -2.2165555e-08, -0.29647666, -0.1344051, 0.46289063, -0.41104126)
 size = Vector3(1.1347656, 1.9257813, 0.17791748)
 material = SubResource("StandardMaterial3D_jeqj2")
 
-[node name="Cover" type="CSGBox3D" parent="."]
+[node name="Cover" type="CSGBox3D" parent="." unique_id=490868246]
 transform = Transform3D(0.25850764, 0, 0, 0, 0.2535444, 5.1837628e-08, 0, -4.433111e-08, 0.29647666, -0.13456126, 0.46289063, -0.382968)
 size = Vector3(1.1337891, 1.9257813, 0.001)
 material = SubResource("StandardMaterial3D_411td")
 
-[node name="BackCover" type="CSGBox3D" parent="."]
+[node name="BackCover" type="CSGBox3D" parent="." unique_id=275578915]
 transform = Transform3D(-0.25850764, 2.2165555e-08, 0, 2.2599457e-08, 0.2535444, -2.5918814e-08, -1.975707e-15, -2.2165555e-08, -0.29647666, -0.13483456, 0.46289063, -0.43812388)
 size = Vector3(1.1320801, 1.9257813, 0.0059509277)
 material = SubResource("StandardMaterial3D_igxrg")
 
-[node name="Spine" type="CSGBox3D" parent="."]
+[node name="Spine" type="CSGBox3D" parent="." unique_id=2057517592]
 transform = Transform3D(-1.3979928e-08, 0, -0.65301764, 0, 0.2535444, 0, 0.31982347, 0, -2.8544308e-08, -0.22350395, 0.46257177, -0.41124108)
 size = Vector3(0.17305374, 1.9248047, 0.17791748)
 material = SubResource("StandardMaterial3D_6ryel")
