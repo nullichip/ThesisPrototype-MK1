@@ -1,9 +1,9 @@
-[gd_scene format=3 uid="uid://bghijt8wjymd6"]
+[gd_scene load_steps=0 format=3 uid="uid://bghijt8wjymd6"]
 
-[ext_resource type="Texture2D" uid="uid://cysjrd2ycrcyi" path="res://Thesis/PXL_20260814_072416284.MP.jpg" id="2_h3ddi"]
-[ext_resource type="Texture2D" uid="uid://da4r7cgkn4rb5" path="res://Thesis/PXL_20260814_072440570.TS-000.MP.jpg" id="3_hgpoo"]
-[ext_resource type="Texture2D" uid="uid://4vqfx6vneq6y" path="res://Thesis/PXL_20260814_072455312.MP.jpg" id="4_h3ddi"]
-[ext_resource type="Texture2D" uid="uid://cxdayetejpdv8" path="res://Thesis/PXL_20260814_072451449.MP.jpg" id="5_mso5s"]
+[ext_resource type="Texture2D" uid="uid://cysjrd2ycrcyi" path="res://mk2/Thesis/PXL_20260814_072416284.MP.jpg" id="2_h3ddi"]
+[ext_resource type="Texture2D" uid="uid://da4r7cgkn4rb5" path="res://mk2/Thesis/PXL_20260814_072440570.TS-000.MP.jpg" id="3_hgpoo"]
+[ext_resource type="Texture2D" uid="uid://4vqfx6vneq6y" path="res://mk2/Thesis/PXL_20260814_072455312.MP.jpg" id="4_h3ddi"]
+[ext_resource type="Texture2D" uid="uid://cxdayetejpdv8" path="res://mk2/Thesis/PXL_20260814_072451449.MP.jpg" id="5_mso5s"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jeqj2"]
 albedo_texture = ExtResource("2_h3ddi")
