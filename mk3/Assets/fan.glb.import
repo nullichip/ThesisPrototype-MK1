@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cjsk7b67fkufw"
-path="res://.godot/imported/vanity.glb-34542b22785ee1b1a043616da52aba38.scn"
+uid="uid://ba8ppcjqgtdbk"
+path="res://.godot/imported/fan.glb-19ff237d52eab9243b1d05c6cf6bfc7e.scn"
 
 [deps]
 
-source_file="res://mk3/Assets/vanity.glb"
-dest_files=["res://.godot/imported/vanity.glb-34542b22785ee1b1a043616da52aba38.scn"]
+source_file="res://mk3/Assets/fan.glb"
+dest_files=["res://.godot/imported/fan.glb-19ff237d52eab9243b1d05c6cf6bfc7e.scn"]
 
 [params]
 
