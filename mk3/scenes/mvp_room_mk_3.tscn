@@ -1,8 +1,10 @@
-[gd_scene load_steps=40 format=3 uid="uid://ykseerhqs6n"]
+[gd_scene load_steps=43 format=3 uid="uid://ykseerhqs6n"]
 
 [ext_resource type="Script" uid="uid://b22h33ci64rtv" path="res://mk1/scripts/xr_origin_3d.gd" id="1_4hebg"]
+[ext_resource type="PackedScene" uid="uid://njx823gyk04n" path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_hand.tscn" id="2_nvm8q"]
 [ext_resource type="PackedScene" uid="uid://del0ydbbojq0w" path="res://mk3/Assets/EastWall.glb" id="2_slnam"]
 [ext_resource type="PackedScene" uid="uid://cjs5rxhsb3fma" path="res://mk3/Assets/SouthWall.glb" id="3_6dhh1"]
+[ext_resource type="PackedScene" uid="uid://raeeicvvindd" path="res://addons/godot-xr-tools/hands/scenes/highpoly/right_hand.tscn" id="3_sdct3"]
 [ext_resource type="PackedScene" uid="uid://28h7d886g6gt" path="res://mk3/Assets/WestWall.glb" id="4_xek0q"]
 [ext_resource type="Texture2D" uid="uid://cmbsdbw44ttyw" path="res://mk2/Thesis/outside.jpg" id="5_648ke"]
 [ext_resource type="PackedScene" uid="uid://ibg3wju36adg" path="res://mk3/Assets/Floor.glb" id="6_emwh5"]
@@ -25,10 +27,13 @@
 [ext_resource type="PackedScene" uid="uid://blov1d3hcs564" path="res://mk3/Assets/mascara.glb" id="23_obes6"]
 [ext_resource type="PackedScene" uid="uid://t64dlty5d7jv" path="res://mk3/Assets/lipstick.glb" id="24_568wt"]
 [ext_resource type="PackedScene" uid="uid://bjmaq12e1d76h" path="res://mk3/Assets/blush.glb" id="25_ayqqw"]
+[ext_resource type="PackedScene" uid="uid://dwh2mmm3mbq6b" path="res://mk3/Assets/picture.glb" id="28_f3wwu"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_32fd2"]
+radius = 0.07
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_2qpxy"]
+radius = 0.07
 
 [sub_resource type="BoxMesh" id="BoxMesh_i0ye6"]
 
@@ -44,10 +49,32 @@ albedo_texture = ExtResource("5_648ke")
 [sub_resource type="BoxShape3D" id="BoxShape3D_fn4md"]
 size = Vector3(23.313774, 20.584953, 3.0081787)
 
-[sub_resource type="Environment" id="Environment_onqup"]
-ambient_light_source = 3
-ambient_light_color = Color(0.92399985, 0.72214967, 0.46161783, 1)
-ambient_light_energy = 2.04
+[sub_resource type="Animation" id="Animation_643gy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Room/Furniture/flowers:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.5707964, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Room/Furniture/flowers:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(11.420684, -4.996635, -3.254106)]
+}
 
 [sub_resource type="Animation" id="Animation_vexpp"]
 resource_name = "swaying_shirt_leaves"
@@ -55,101 +82,26 @@ loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("shirt:position")
+tracks/0/path = NodePath("Room/Furniture/flowers:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(11.968253, 0.76834744, -4.1821156)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("flowers:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0, 1.5707964, 0.0017453292), Vector3(0, 1.5707964, -0.0017453292)]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("flowers:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Room/Furniture/flowers:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(11.420684, -4.996635, -3.254106), Vector3(11.444559, -4.996635, -3.254106)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("shirt:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0.0052359877, 1.5707964, 3.1485739), Vector3(-0.0052359877, 1.5707964, 3.1485739)]
-}
-
-[sub_resource type="Animation" id="Animation_643gy"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("shirt:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(11.968253, 0.76834744, -4.1821156)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("flowers:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 1.5707964, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("flowers:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(11.420684, -4.996635, -3.254106)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("shirt:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.0052359877, 1.5707964, 3.1485739)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_33ue8"]
@@ -158,41 +110,12 @@ _data = {
 &"swaying_shirt_leaves": SubResource("Animation_vexpp")
 }
 
-[sub_resource type="Animation" id="Animation_jgge3"]
-resource_name = "spinning_fan"
-length = 2.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("fan:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(16.02298, 14.123774, 4.59865)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("fan:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(3.1415927, 0, 0), Vector3(3.1415927, 6.2831855, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_067pf"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("fan:position")
+tracks/0/path = NodePath("Room/Furniture/fan:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -204,7 +127,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("fan:rotation")
+tracks/1/path = NodePath("Room/Furniture/fan:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -214,17 +137,51 @@ tracks/1/keys = {
 "values": [Vector3(3.1415927, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_jgge3"]
+resource_name = "spinning_fan"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Room/Furniture/fan:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(16.02298, 14.123774, 4.59865)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Room/Furniture/fan:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(3.1415927, 0, 0), Vector3(3.1415927, 6.2831855, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lcxbn"]
 _data = {
 &"RESET": SubResource("Animation_067pf"),
 &"spinning_fan": SubResource("Animation_jgge3")
 }
 
+[sub_resource type="Environment" id="Environment_onqup"]
+ambient_light_source = 3
+ambient_light_color = Color(0.92399985, 0.72214967, 0.46161783, 1)
+ambient_light_energy = 2.04
+
 [node name="MVP_Room_MK3" type="Node3D"]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
 
 [node name="XROrigin3D" type="XROrigin3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7532749, 1.3441775, -0.6235653)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.57383144, 0.10808462, 0.4980916)
 script = ExtResource("1_4hebg")
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
@@ -233,28 +190,30 @@ current = true
 [node name="LeftController" type="XRController3D" parent="XROrigin3D"]
 tracker = &"left_hand"
 
+[node name="LeftHand" parent="XROrigin3D/LeftController" instance=ExtResource("2_nvm8q")]
+
 [node name="LeftHandArea" type="Area3D" parent="XROrigin3D/LeftController"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/LeftController/LeftHandArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0435696, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.004, 0)
 shape = SubResource("SphereShape3D_32fd2")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/LeftController"]
 
 [node name="RightController" type="XRController3D" parent="XROrigin3D"]
 tracker = &"right_hand"
 
+[node name="RightHand" parent="XROrigin3D/RightController" instance=ExtResource("3_sdct3")]
+
 [node name="RightHandArea" type="Area3D" parent="XROrigin3D/RightController"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/RightController/RightHandArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0435696, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0037258863, 0)
 shape = SubResource("SphereShape3D_2qpxy")
 
 [node name="Room" type="Node3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+transform = Transform3D(0.07, 0, 0, 0, 0.07, 0, 0, 0, 0.07, 0, 0, 0)
 
 [node name="EastWall" parent="Room" instance=ExtResource("2_slnam")]
-transform = Transform3D(0.3, 0, 0, 0, 0.37679255, 0, 0, 0, 0.40594435, -4.3144283, 0, 8.767481)
+transform = Transform3D(0.3, 0, 0, 0, 0.37679255, 0, 0, 0, 0.40594435, -4.3144283, 0.11365611, 8.767481)
 
 [node name="SouthWall" parent="Room" instance=ExtResource("3_6dhh1")]
 transform = Transform3D(-1.4031356e-08, 0, -0.387, 0, 0.377, 0, 0.321, 0, -1.6916307e-08, 24.099247, -0.17658152, -13.968944)
@@ -331,74 +290,81 @@ transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 47.11
 [node name="Ceiling10" parent="Room/Floor/Ceiling" instance=ExtResource("7_0kg1k")]
 transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 90.67282, 0, 90.15055)
 
-[node name="books" parent="Room/Floor" instance=ExtResource("8_bg6d3")]
-transform = Transform3D(-0.5395975, 0, -0.57589525, 0, 0.85746133, 0, 0.68126655, 0, -0.4561381, 47.40286, 10.256769, 23.777124)
+[node name="Furniture" type="Node3D" parent="Room"]
 
-[node name="lotion" parent="." instance=ExtResource("9_2btxs")]
-transform = Transform3D(0.67584085, 0, 1.4389905, 0, 1.6731551, 0, -1.7461269, 0, 0.55696326, 4.1923685, 3.23063, 17.257576)
+[node name="lotion" parent="Room/Furniture" instance=ExtResource("9_2btxs")]
+transform = Transform3D(1.3516816, 0, 2.8779807, 0, 3.3463101, 0, -3.4922538, 0, 1.1139264, 8.384736, 6.4612594, 34.51515)
 
-[node name="desk" parent="." instance=ExtResource("10_f3bwr")]
-transform = Transform3D(-1.7694448, 0, 0.035544198, 0, 1.6034607, 0, -0.043738563, 0, -1.4379418, 27.921627, 6.643281, 13.38329)
+[node name="desk" parent="Room/Furniture" instance=ExtResource("10_f3bwr")]
+transform = Transform3D(-3.5388896, 0, 0.07108839, 0, 3.206921, 0, -0.087477125, 0, -2.8758836, 55.843254, 13.286562, 26.76658)
 
-[node name="manga_shelf2" parent="." instance=ExtResource("11_nvm8q")]
-transform = Transform3D(0.5372755, 0, 1.1466974, 0, 1.4480664, 0, -0.88833654, 0, 0.69353485, -5.0185385, 0.56536394, 24.967957)
+[node name="manga_shelf2" parent="Room/Furniture" instance=ExtResource("11_nvm8q")]
+transform = Transform3D(1.074551, 0, 2.2933946, 0, 2.8961327, 0, -1.7766731, 0, 1.3870696, -10.037076, 1.1307278, 49.935913)
 
-[node name="manga_shelf1" parent="." instance=ExtResource("8_pcrlg")]
-transform = Transform3D(1, 0, 0, 0, 1.482, 0, 0, 0, 1.45, -0.7458525, 2.4278636, 0.8370595)
+[node name="manga_shelf1" parent="Room/Furniture" instance=ExtResource("8_pcrlg")]
+transform = Transform3D(1.9999999, 0, 0, 0, 2.9639997, 0, 0, 0, 2.8999999, -1.4917048, 4.8557267, 1.6741189)
 
-[node name="collage" parent="." instance=ExtResource("9_klknt")]
-transform = Transform3D(-8.742278e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.742278e-09, 18.505037, 5.964051, 19.187426)
+[node name="collage" parent="Room/Furniture" instance=ExtResource("9_klknt")]
+transform = Transform3D(-1.7484554e-08, 0, 0.39999998, 0, 0.39999998, 0, -0.39999998, 0, -1.7484554e-08, 37.01007, 11.928101, 38.37485)
 
-[node name="moniter" parent="." instance=ExtResource("10_hvf11")]
-transform = Transform3D(-5.5058656e-08, 0, 1.1617174, 0, 1.2188406, 0, -1.2595953, 0, -5.0780276e-08, 17.118587, 5.086669, 17.366081)
+[node name="moniter" parent="Room/Furniture" instance=ExtResource("10_hvf11")]
+transform = Transform3D(-1.1011731e-07, 0, 2.3234348, 0, 2.4376812, 0, -2.5191905, 0, -1.0156055e-07, 34.23717, 10.173337, 34.73216)
 
-[node name="flowers" parent="." instance=ExtResource("15_sdct3")]
-transform = Transform3D(-4.18516e-09, 0, 0.21145292, 0, 0.27813053, 0, -0.0957453, 0, -9.242901e-09, 11.420684, -4.996635, -3.254106)
+[node name="flowers" parent="Room/Furniture" instance=ExtResource("15_sdct3")]
+transform = Transform3D(-8.370319e-09, 0, 0.4229058, 0, 0.55626106, 0, -0.19149058, 0, -1.84858e-08, 11.420684, -4.996635, -3.254106)
 
-[node name="shirt" parent="." instance=ExtResource("16_f3wwu")]
-transform = Transform3D(2.860708e-06, 0.0009333042, -0.20412792, 0.00054700405, 0.17824632, 0.0010688211, -0.078353435, 0.0012444145, 8.922715e-09, 11.968253, 0.76834744, -4.1821156)
-
-[node name="bed" parent="." instance=ExtResource("17_7gd4h")]
-transform = Transform3D(1.1657568, 0, 0, 0, 1.2702705, 0, 0, 0, 1.3759539, 18.946613, 2.827684, -1.7172365)
-
-[node name="fan" parent="." instance=ExtResource("18_8rfqm")]
-transform = Transform3D(-0.20231363, 0, 0, 0, 0.2697321, -1.5936557e-08, 0, 2.3580728e-08, 0.18229297, 16.02298, 14.123774, 4.59865)
-
-[node name="vanity_desk" parent="." instance=ExtResource("19_wvuwl")]
-transform = Transform3D(-1.4570462e-07, 0, 3.3333328, 0, 3.335507, 0, -3.3333328, 0, -1.4570462e-07, 6.9520407, 4.3278284, 19.182026)
-
-[node name="InteractiveManga1" parent="." instance=ExtResource("20_7i5tc")]
-transform = Transform3D(-1.5513966e-07, 0, 1.6666664, 0, 2.6522484, 0, -3.5491817, 0, -7.285231e-08, -0.3502505, 11.255612, 0.6756708)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_onqup")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Room/Furniture/flowers"]
+root_node = NodePath("../../../..")
 libraries = {
 &"": SubResource("AnimationLibrary_33ue8")
 }
 autoplay = "swaying_shirt_leaves"
 
-[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+[node name="shirt" parent="Room/Furniture" instance=ExtResource("16_f3wwu")]
+transform = Transform3D(-5.7351153e-06, -0.0018666082, -0.40825582, 0.001094008, 0.3564926, -0.002137642, -0.15670687, 0.0024888287, 1.7845428e-08, 23.936504, 1.5366948, -8.364231)
+
+[node name="bed" parent="Room/Furniture" instance=ExtResource("17_7gd4h")]
+transform = Transform3D(2.3315136, 0, 0, 0, 2.540541, 0, 0, 0, 2.7519076, 37.893227, 5.655368, -3.434473)
+
+[node name="fan" parent="Room/Furniture" instance=ExtResource("18_8rfqm")]
+transform = Transform3D(-0.40462723, 0, 0, 0, 0.5394642, -3.1873114e-08, 0, 4.7161457e-08, 0.3645859, 16.02298, 14.123774, 4.59865)
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Room/Furniture/fan"]
+root_node = NodePath("../../../..")
 libraries = {
 &"": SubResource("AnimationLibrary_lcxbn")
 }
 autoplay = "spinning_fan"
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1.4304006, 0, 0, 0, 0.9794346, 0.3585061, 0, -0.20176174, 1.7403364, 4.906649, 11.725357, 29.916685)
+[node name="vanity_desk" parent="Room/Furniture" instance=ExtResource("19_wvuwl")]
+transform = Transform3D(-2.9140924e-07, 0, 6.666665, 0, 6.6710134, 0, -6.666665, 0, -2.9140924e-07, 13.90408, 8.655656, 38.36405)
 
-[node name="InteractiveManga2" parent="." instance=ExtResource("21_kio0k")]
-transform = Transform3D(-1.5395561e-07, 0, 1.6666665, 0, 2.6342037, 0, -3.5220935, 0, -7.285231e-08, -0.2157481, 9.393769, 2.2421732)
+[node name="InteractiveManga1" parent="Room/Furniture" instance=ExtResource("20_7i5tc")]
+transform = Transform3D(-3.102793e-07, 0, 3.3333325, 0, 5.304497, 0, -7.0983634, 0, -1.4570462e-07, -0.70050097, 22.511225, 1.3513416)
 
-[node name="vanity_drawer" parent="." instance=ExtResource("22_a7y6v")]
-transform = Transform3D(-1.3016495e-07, 0, 3.3776262, 0, 3.9375658, 0, -2.9778268, 0, -1.4764072e-07, 6.920542, 4.3691506, 21.061848)
+[node name="InteractiveManga2" parent="Room/Furniture" instance=ExtResource("21_kio0k")]
+transform = Transform3D(-3.079112e-07, 0, 3.3333328, 0, 5.2684073, 0, -7.0441866, 0, -1.4570462e-07, -0.43149617, 18.787539, 4.4843464)
 
-[node name="mascara" parent="vanity_drawer" instance=ExtResource("23_obes6")]
+[node name="vanity_drawer" parent="Room/Furniture" instance=ExtResource("22_a7y6v")]
+transform = Transform3D(-2.6032987e-07, 0, 6.755252, 0, 7.875131, 0, -5.955653, 0, -2.9528144e-07, 13.841083, 8.7383, 42.12369)
+
+[node name="mascara" parent="Room/Furniture/vanity_drawer" instance=ExtResource("23_obes6")]
 transform = Transform3D(-4.892985e-08, 0, -1.1193845, 0, 0.8465467, 0, 0.9868864, 0, -4.3138172e-08, 1.9491501, 0.021894217, -1.9587028)
 
-[node name="lipstick" parent="vanity_drawer" instance=ExtResource("24_568wt")]
+[node name="lipstick" parent="Room/Furniture/vanity_drawer" instance=ExtResource("24_568wt")]
 transform = Transform3D(-4.892985e-08, 0, -1.1193845, 0, 0.8465467, 0, 0.9868864, 0, -4.3138172e-08, 2.1879811, 0.011316299, -2.373078)
 
-[node name="blush" parent="vanity_drawer" instance=ExtResource("25_ayqqw")]
+[node name="blush" parent="Room/Furniture/vanity_drawer" instance=ExtResource("25_ayqqw")]
 transform = Transform3D(-4.892985e-08, 0, -1.1193845, 0, 0.8465467, 0, 0.9868864, 0, -4.3138172e-08, 2.1663184, 0.05008447, -2.0171583)
+
+[node name="books" parent="Room/Furniture" instance=ExtResource("8_bg6d3")]
+transform = Transform3D(-0.5395975, 0, -0.5758952, 0, 0.85746133, 0, 0.6812665, 0, -0.4561381, 47.402855, 10.256769, 23.777122)
+
+[node name="picture" parent="Room/Furniture" instance=ExtResource("28_f3wwu")]
+transform = Transform3D(3.1720655e-15, 0.97679573, -0.21417283, 0.99999994, 9.361793e-09, 4.2697096e-08, 4.3711385e-08, -0.21417283, -0.97679573, 47.905807, 10.246179, 19.106775)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_onqup")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1.4304006, 0, 0, 0, 0.9794346, 0.3585061, 0, -0.20176174, 1.7403364, 4.906649, 11.725357, 29.916685)

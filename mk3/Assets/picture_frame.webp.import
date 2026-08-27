@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bj0wjj6iealb4"
-path.s3tc="res://.godot/imported/lotion_PXL_20260817_222938178.jpg-c3d87f4e9a88edbaf67907944614593a.s3tc.ctex"
+uid="uid://cw82v33ud81mh"
+path.s3tc="res://.godot/imported/picture_frame.webp-55c67a8188fdc58cea6ffee83741ecbc.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "4a3772343a0ad3bbbc097f1f486178e0"
+"md5": "f7de7469c83bc59d0dc7be3ecee825f5"
 }
 
 [deps]
 
-source_file="res://mk3/lotion_PXL_20260817_222938178.jpg"
-dest_files=["res://.godot/imported/lotion_PXL_20260817_222938178.jpg-c3d87f4e9a88edbaf67907944614593a.s3tc.ctex"]
+source_file="res://mk3/Assets/picture_frame.webp"
+dest_files=["res://.godot/imported/picture_frame.webp-55c67a8188fdc58cea6ffee83741ecbc.s3tc.ctex"]
 
 [params]
 

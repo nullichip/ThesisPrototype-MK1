@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bj0wjj6iealb4"
-path.s3tc="res://.godot/imported/lotion_PXL_20260817_222938178.jpg-c3d87f4e9a88edbaf67907944614593a.s3tc.ctex"
+uid="uid://bn13ne7g0othf"
+path.s3tc="res://.godot/imported/picture_ChatGPT Image Aug 26, 2026, 02_35_57 PM.png-7380d78ccfdd088c334cf4543d95dc3a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "4a3772343a0ad3bbbc097f1f486178e0"
+"md5": "8245b54199e05dea226be83716727c63"
 }
 
 [deps]
 
-source_file="res://mk3/lotion_PXL_20260817_222938178.jpg"
-dest_files=["res://.godot/imported/lotion_PXL_20260817_222938178.jpg-c3d87f4e9a88edbaf67907944614593a.s3tc.ctex"]
+source_file="res://mk3/Assets/picture_ChatGPT Image Aug 26, 2026, 02_35_57 PM.png"
+dest_files=["res://.godot/imported/picture_ChatGPT Image Aug 26, 2026, 02_35_57 PM.png-7380d78ccfdd088c334cf4543d95dc3a.s3tc.ctex"]
 
 [params]
 
